@@ -315,6 +315,20 @@ aparece no primeiro print que o cliente vê. Código pronto em
    telefone ou de balão de fala.
 4. **Tamanho**: 58px no desktop, 54px no celular. Se o usuário pedir maior, 76px é o teto.
 
+**O botão de texto é outra coisa, não confunda.** O CTA que fica dentro da página (header,
+fim de seção, "Informações e agendamento") usa a **cor da marca**, não o verde: verde ali
+brigaria com a paleta em cada seção. Mas ele **sempre leva o ícone do WhatsApp** ao lado do
+texto, senão ninguém sabe pra onde o botão vai. Resumindo:
+
+| Botão | Cor | Ícone | Texto |
+| --- | --- | --- | --- |
+| Flutuante (canto da tela) | verde do WhatsApp | sim | não |
+| De seção / header | cor da marca | sim | sim |
+
+Erro real: uma sessão entregou o flutuante marrom (devia ser verde) e os botões de texto
+sem ícone nenhum (devia ter). Os dois casos passam despercebidos porque a página fica
+bonita mesmo assim.
+
 Erro real, aconteceu com esta skill: uma sessão entregou o botão pintado de marrom (a cor
 da marca) numa versão e, na outra, uma pílula verde com a frase "Informações e agendamento"
 dentro. As duas quebram as regras 1 e 2. Antes de publicar, olhe o botão e confirme: é um

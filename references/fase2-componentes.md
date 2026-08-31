@@ -86,6 +86,20 @@ vence e o botão fica sem cor, em silêncio. É o bug número 1 desta skill.
 #site-home .btn-section:focus-visible { outline: 2px solid var(--cor-destaque); outline-offset: 3px; }
 ```
 
+**Se o botão leva ao WhatsApp, ele precisa do ícone.** A cor aqui é a da marca (o verde é
+só do botão flutuante), mas sem o ícone ninguém sabe pra onde o botão vai. SVG oficial em
+[whatsapp-botao.md](whatsapp-botao.md).
+
+```html
+<a class="btn-section" href="https://wa.me/NUMERO?text=MENSAGEM_CODIFICADA"
+   target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+    <path d="..."/>
+  </svg>
+  Informações e agendamento
+</a>
+```
+
 ## Lista de bullets (fatores, serviços, sintomas)
 
 ```css
