@@ -25,6 +25,8 @@ Rodar inteiro antes de dizer "está pronto". Se algum item não passar, dizer **
 - [ ] Testado em 375px (celular)
 - [ ] Testado em janela baixa (ex: 1844x720)
 - [ ] Todos os links de WhatsApp com número, `text=` codificado e mesma mensagem
+- [ ] Botão flutuante de WhatsApp: círculo **verde**, com ícone, **sem texto e sem balão**
+      (ver [whatsapp-botao.md](whatsapp-botao.md); cor da marca no botão é erro)
 - [ ] Todos os links externos com `target="_blank" rel="noopener"`
 - [ ] Todas as âncoras do menu apontando para `id` que existe
 - [ ] Endereço linkado para o Google Maps

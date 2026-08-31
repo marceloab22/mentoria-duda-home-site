@@ -298,6 +298,28 @@ conversa e deixa cada iteração lenta.
   `img` ou `a` deve ser escrita com o mesmo prefixo de ID: `#site-home .btn-verde { ... }`.
   Esse é o bug número 1 desta skill, já apareceu 4 vezes.
 
+### Botão flutuante de WhatsApp: 4 regras fixas
+
+Não são preferência de estilo, são padrão do projeto. Valem já na Fase 1, porque o botão
+aparece no primeiro print que o cliente vê. Código pronto em
+[whatsapp-botao.md](references/whatsapp-botao.md).
+
+1. **Verde do WhatsApp, sempre.** `#25D366` (ou `#2AAE5F` com hover `#249752`). **Nunca a
+   cor da marca do cliente.** O verde é o que faz a pessoa reconhecer o botão sem ler nada;
+   pintado de bege, marrom ou azul ele vira "mais um botão redondo" e perde clique. Se o
+   cliente pedir a cor da marca, diga isso em uma linha e só troque se ele insistir.
+2. **Círculo com o ícone, sem texto.** Nada de balão de convite, pílula com frase, ou
+   "Informações e agendamento" escrito ao lado. Só o círculo com o ícone oficial. Balão só
+   se o usuário pedir com essas palavras.
+3. **Ícone oficial do WhatsApp**, em SVG, branco, dentro do círculo. Sem ícone genérico de
+   telefone ou de balão de fala.
+4. **Tamanho**: 58px no desktop, 54px no celular. Se o usuário pedir maior, 76px é o teto.
+
+Erro real, aconteceu com esta skill: uma sessão entregou o botão pintado de marrom (a cor
+da marca) numa versão e, na outra, uma pílula verde com a frase "Informações e agendamento"
+dentro. As duas quebram as regras 1 e 2. Antes de publicar, olhe o botão e confirme: é um
+círculo verde com o ícone e nada mais?
+
 ---
 
 ## 6. Regra das 6 versões: quando o usuário disser "não gostei"

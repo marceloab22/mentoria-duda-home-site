@@ -25,6 +25,7 @@ Procure pelo **sintoma**, que é o que você recebe do usuário.
 | A foto corta mal, proporção estranha | [B3](#b3) |
 | O preview trava ou dá screenshot preto | [B13](#b13) |
 | A seção nova ficou "apertada" perto das outras | [B14](#b14) |
+| O botão de WhatsApp está na cor da marca, ou com texto | [B15](#b15) |
 
 ---
 
@@ -265,6 +266,29 @@ url = f'https://www.google.com/maps?q={quote(endereco)}&output=embed'
 
 Ver [respiro-e-distribuicao.md](respiro-e-distribuicao.md) seção 3. Layout e respiro são um
 pacote só.
+
+---
+
+<a id="b15"></a>
+## B15. Botão de WhatsApp fora do padrão
+
+**Sintoma:** o botão flutuante saiu pintado com a cor da marca (bege, marrom, azul), ou
+virou uma pílula com frase do tipo "Informações e agendamento" em vez de círculo com ícone.
+
+**Causa:** as regras do botão ficaram só no arquivo de referência, que é aberto sob demanda.
+Quando a sessão não abre, ela improvisa e "harmoniza" o botão com a paleta da página, o que
+parece bonito e está errado.
+
+**Por que é erro:** o verde do WhatsApp é o que faz a pessoa reconhecer o botão sem ler
+nada. Pintado da cor da marca, ele vira mais um botão redondo na página. E a pílula com
+texto compete com o CTA da seção, além de ocupar espaço no celular.
+
+**Correção:** aplicar as 4 regras fixas do SKILL.md seção 5 (verde `#25D366` ou `#2AAE5F`,
+círculo sem texto, ícone oficial em SVG, 58px no desktop e 54px no celular). Código pronto
+em [whatsapp-botao.md](whatsapp-botao.md).
+
+**Diagnóstico:** snippet 12 de [testes-medicao.md](testes-medicao.md), que devolve
+`verde` e `semTexto`.
 
 ---
 

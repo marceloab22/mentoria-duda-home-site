@@ -21,9 +21,18 @@ url = f"https://wa.me/{numero}?text={quote(msg)}"
 
 ## Botão flutuante (padrão testado nesta skill)
 
-Círculo verde no canto da tela, sem balão de convite por padrão (só adicionar balão se o
-usuário pedir explicitamente). Cor: verde oficial do WhatsApp `#25D366` (ou uma variante
-próxima, ex: `#2AAE5F` com hover `#249752`, se o usuário indicar outra referência).
+Círculo verde no canto da tela, com o ícone e **nada mais**.
+
+**Cor: verde do WhatsApp, sempre.** `#25D366`, ou `#2AAE5F` com hover `#249752`. **Nunca a
+cor da marca do cliente.** O verde é o que faz a pessoa reconhecer o botão sem ler nada;
+pintado de bege, marrom ou azul, ele vira "mais um botão redondo" e perde clique. Se o
+cliente pedir a cor da marca, diga isso em uma linha e só troque se ele insistir.
+
+**Sem texto, sem balão.** Nada de pílula com frase ao lado, nada de balão de convite. Só o
+círculo com o ícone. Balão ou texto só se o usuário pedir com essas palavras.
+
+Erro real: uma sessão entregou o botão pintado de marrom (cor da marca) numa versão e uma
+pílula verde escrita "Informações e agendamento" na outra. As duas estão erradas.
 
 ```html
 <a class="float-wa" href="https://wa.me/NUMERO?text=MENSAGEM_CODIFICADA"
@@ -95,3 +104,6 @@ pra editar nesta conversa.
 - [ ] "Dr." ou "Dra." resolvido, nunca "Dr(a)"
 - [ ] todo botão com o ícone
 - [ ] botão flutuante presente e não cobre o menu fixo nem outro elemento importante
+- [ ] botão flutuante **verde** (`#25D366` ou `#2AAE5F`), nunca a cor da marca
+- [ ] botão flutuante é **círculo com ícone, sem texto e sem balão**
+- [ ] tamanho 58px no desktop, 54px no celular (teto de 76px se pedirem maior)

@@ -171,7 +171,27 @@ JSON.stringify({
 Trocar `Fraunces` pelo nome da fonte real. No terminal, conferir também:
 `grep -c "fonts.googleapis" arquivo.html` (tem que ser maior que 0).
 
-## 12. Checagens de terminal
+## 12. Botão flutuante de WhatsApp
+
+`verde` e `semTexto` têm que ser `true`. Botão na cor da marca ou com frase ao lado é erro,
+não escolha de estilo.
+
+```javascript
+const b = document.querySelector('#site-home .float-wa');
+const bg = getComputedStyle(b).backgroundColor;
+const [r,g,bl] = bg.match(/\d+/g).map(Number);
+JSON.stringify({
+  cor: bg,
+  verde: g > r + 40 && g > bl + 40,
+  semTexto: b.innerText.trim() === '',
+  temIcone: !!b.querySelector('svg'),
+  largura: Math.round(b.getBoundingClientRect().width)
+})
+```
+
+Esperado: `verde: true`, `semTexto: true`, `temIcone: true`, largura 54 a 76.
+
+## 13. Checagens de terminal
 
 ```bash
 grep -c "—" arquivo.html                  # travessão: tem que dar 0
@@ -185,7 +205,7 @@ grep -c "wa.me" arquivo.html              # links de WhatsApp presentes
 
 ## Protocolo mínimo antes de publicar
 
-Rodar, na ordem: 1, 2, 3, 4, 11, 12. Depois, com a janela em 375px: 3, 10.
+Rodar, na ordem: 1, 2, 3, 4, 11, 12, 13. Depois, com a janela em 375px: 3, 10, 12.
 Depois de qualquer mexida em duas colunas: 5, 6. Depois de mexer no hero: 7, 8.
 Antes do handoff: 9, mais o checklist de
 [seo-acessibilidade.md](seo-acessibilidade.md).
