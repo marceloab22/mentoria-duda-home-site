@@ -9,6 +9,12 @@ no ar sem voltar pra perguntar nada.
 
 Rodar inteiro antes de dizer "está pronto". Se algum item não passar, dizer **qual**.
 
+### Originalidade
+- [ ] O teste da frase passou: a descrição estrutural desta página **não** serve para o
+      site anterior (ver [variacoes-estruturais.md](variacoes-estruturais.md))
+- [ ] Nenhum tratamento de bloco se repete em mais de duas seções
+- [ ] Seções vizinhas não usam o mesmo tratamento
+
 ### Conteúdo
 - [ ] Toda a copy aprovada está na página, palavra por palavra
 - [ ] Nenhum dado inventado (nome, endereço, horário, convênio, preço)

@@ -24,6 +24,7 @@ Não leia tudo de uma vez. Abra a referência quando chegar naquele passo.
 | **Abrindo a conversa** | **"Abertura obrigatória" logo abaixo, antes de tudo** |
 | Completando o briefing depois das 3 rodadas | [checklist-briefing.md](references/checklist-briefing.md) |
 | Decidindo quais seções a home vai ter | [estrutura-home.md](references/estrutura-home.md) |
+| **Escolhendo o esqueleto (antes da Fase 1)** | [variacoes-estruturais.md](references/variacoes-estruturais.md) |
 | Escrevendo/revisando qualquer texto do site | [compliance-cfm-lgpd.md](references/compliance-cfm-lgpd.md) |
 | Montando o hero (Fase 1) | [hero-armadilhas.md](references/hero-armadilhas.md) |
 | Montando a prévia comparativa (3 ou 6 versões) | [comparador-template.html](references/comparador-template.html) + [comparador.py](references/comparador.py) |
@@ -179,11 +180,13 @@ Se alguma dessas quebrar, o trabalho está errado mesmo que pareça bonito.
    subtítulo, use só palavras que já existem no texto aprovado.
 4. **Só foto real.** Nunca banco de imagens, nunca imagem gerada por IA de pessoa. Faltou
    foto? Moldura vazia com legenda ("foto real da recepção, a confirmar").
-5. **Cor e fonte nunca vêm de outro projeto.** Identidade visual (paleta, tipografia,
-   "cara" da página) sai sempre do briefing daquele cliente. O que esta skill reaproveita
-   entre projetos é só **técnica de distribuição de texto e foto**: grids, escala de
-   respiro, chips, carrossel, correção de alinhamento. Isso é CSS estrutural, funciona com
-   qualquer paleta. Copiar hex ou fonte de um cliente pro outro é erro.
+5. **Cor e fonte nunca vêm de outro projeto, e o esqueleto também não.** Identidade visual
+   (paleta, tipografia) sai sempre do briefing daquele cliente. E o **esqueleto** da página
+   (ritmo das seções, eixo de leitura, papel da foto, navegação) precisa ser diferente do
+   projeto anterior: trocar só a cor entrega a mesma página duas vezes, e o cliente percebe.
+   O que se reaproveita entre projetos é só **como o CSS funciona**: trilho único, escala de
+   respiro, correções de bug conhecidas, protocolo de teste. Ver
+   [variacoes-estruturais.md](references/variacoes-estruturais.md).
 6. **Zero travessão** (em-dash, `—`, U+2014) em qualquer texto gerado, no site e no chat.
    Use vírgula, ponto, dois-pontos, parênteses ou reescreva. Hífen normal (`-`) pode.
    Conferir antes de entregar: `grep -c "—" arquivo.html` tem que dar 0.
@@ -222,6 +225,19 @@ Objetivo: mostrar 3 estilos bem diferentes de **só** cabeçalho + hero + uma ti
 (cerca de 220px) da seção seguinte. **Nunca a página inteira nesta fase.** É rápido de gerar
 e rápido de decidir; a página completa só vem depois da escolha.
 
+**Antes de gerar: escolher o esqueleto.** Cinco decisões (ritmo das seções, eixo de leitura,
+navegação, papel da foto, marcação de seção) que definem como a página **parece**, separadas
+da paleta. Escolher em [variacoes-estruturais.md](references/variacoes-estruturais.md) e
+anotar as 5 escolhas.
+
+Se o usuário já tem outro site feito com esta skill, **peça um print ou o link agora** e
+escolha um esqueleto diferente daquele. É uma pergunta só, e é o que impede o segundo
+cliente de receber a mesma página com outra cor.
+
+**Teste da frase:** descreva a página em uma frase, só estrutura, sem cor ("hero com foto à
+direita, depois faixas empilhadas com título, texto, lista e botão"). Se essa frase também
+descreve o site anterior, o esqueleto não mudou. Refaça.
+
 As 3 versões precisam divergir de verdade nestes 5 eixos (travar isso no prompt de cada
 uma, ou nos 3 agentes do Workflow):
 
@@ -233,7 +249,8 @@ uma, ou nos 3 agentes do Workflow):
 5. **Alinhamento**: centralizado / à esquerda / assimétrico.
 
 Se duas versões pudessem ser confundidas numa olhada rápida, elas não divergiram o
-suficiente. Refaça.
+suficiente. Refaça. O mesmo vale se as três forem "hero com foto à direita" pintado de três
+jeitos: isso é uma direção só, não três.
 
 Cada versão é um HTML independente seguindo a estrutura técnica da seção 5.
 
