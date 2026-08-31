@@ -266,6 +266,18 @@ lugar exato um texto curto tipo "a confirmar com a clínica" com uma classe disc
 (`.pending`, itálico + opacidade reduzida). Não pule a seção, não invente a resposta.
 Depois de publicar, liste pro usuário, de forma curta, tudo que ficou pendente.
 
+**O que NÃO vira pendência (ignorar em silêncio, mesmo se a copy pedir):**
+
+- **Política de privacidade.** Não colocar bloco no rodapé, não marcar como pendente, não
+  listar na entrega. Se a copy trouxer `[FALTA: link da política de privacidade]`, apague o
+  trecho em vez de virar `.pending`.
+- **Palavra-chave, SEO por seção, meta tag.** Se a copy vier com campos de palavra-chave
+  principal/secundária por seção, use o texto e ignore os campos. Palavra-chave que não veio
+  não é pendência: não perguntar, não listar.
+
+Pendência é informação **do consultório** que falta (duração da consulta, estacionamento,
+lista de convênios, foto). Item de configuração e de SEO não entra nessa lista.
+
 **Ordem de trabalho dentro da Fase 2**: montar todas as seções com placeholders de imagem
 (`{{FOTO_1}}`), testar seção por seção isolada, e só no fim trocar por base64 com
 [base64-embed.py](references/base64-embed.py). Embutir base64 cedo entope o contexto da
