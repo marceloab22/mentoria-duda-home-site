@@ -95,6 +95,9 @@ def main():
         destino = os.path.join(a.saida, 'secao-%s.html' % sec_id)
         with open(destino, 'w', encoding='utf-8') as f:
             f.write('<!doctype html><meta charset="utf-8">\n')
+            # Sem esta meta, o navegador usa 980px de largura de layout e o teste
+            # de mobile (375px) mostra o layout de desktop, escondendo o bug.
+            f.write('<meta name="viewport" content="width=device-width, initial-scale=1">\n')
             f.write('<title>%s</title>\n' % sec_id)
             f.write(estilos)
             f.write('\n<div id="%s">\n' % a.wrapper)

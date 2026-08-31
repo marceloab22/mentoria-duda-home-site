@@ -129,9 +129,16 @@ Não é para reinventar tudo. Continuam padronizados:
 
 - O trilho único e o CSS prefixado pelo wrapper
 - A escala de respiro (o espaçamento é técnica, não identidade)
+- **A formatação da seção de texto puro**: cabeçalho, corpo, lista e botão centralizados,
+  nunca alinhados à esquerda com a metade direita vazia. Ver
+  [respiro-e-distribuicao.md](respiro-e-distribuicao.md) seção 2b
 - As correções de bug (alinhamento do hero, grid de duas colunas, especificidade)
 - O botão de WhatsApp (verde, círculo, sem texto)
 - O protocolo de teste
+
+**Erro dos dois lados, no mesmo projeto:** copiar o esqueleto do cliente anterior (errado) e
+não copiar a formatação de seção (também errado). É exatamente o contrário do que deve
+acontecer.
 
 A diferença: isso é **como o CSS funciona**. Esqueleto é **como a página parece**. O
 primeiro se repete de propósito, o segundo nunca deve.

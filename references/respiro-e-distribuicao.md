@@ -50,6 +50,30 @@ Escalas alternativas, mesma cadeia, outros números:
 espaço grande só entre blocos diferentes. Esses seis são exatamente os eixos a usar quando o
 usuário pedir 6 opções de respiro.
 
+## 2b. Formatação padrão de seção de texto (esta parte SE copia entre projetos)
+
+Cuidado para não confundir com a regra de esqueleto: **o esqueleto muda entre clientes, a
+formatação de uma seção de texto não.** Toda seção do tipo "título, subtítulo, parágrafos,
+lista, botão", **sem foto ou mapa ao lado**, usa o mesmo tratamento:
+
+- Cabeçalho **centralizado** (`.section-head-center`)
+- Corpo **centralizado**, ocupando o trilho (não deixar o texto colado à esquerda com a
+  metade direita vazia)
+- Lista ou chips centralizados
+- Botão centralizado (`.btn-wrap-center`)
+- Escala arejada da seção 2 (32 / 24 / 20 / 36 / 36)
+
+**Sintoma de que a regra não foi aplicada:** o usuário diz "ficou muito para o lado". É o
+cabeçalho com `max-width` fixo alinhado à esquerda, num bloco que não tem nada na coluna da
+direita. O texto fica com linha longa demais **e** com um vazio enorme ao lado.
+
+Seção que **tem** foto, mapa ou carrossel ao lado continua alinhada à esquerda, em duas
+colunas. A regra vale só para bloco de texto puro.
+
+Bug real: um projeto reaproveitou o esqueleto de outro (errado) mas **não** reaproveitou
+essa formatação (também errado). Saiu com 5 seções de texto alinhadas à esquerda, linha de
+mais de 100 caracteres e metade da tela vazia.
+
 ## 3. Regra do pacote: layout e respiro andam juntos
 
 Quando um padrão de layout já aprovado é reaproveitado em outra seção (ex: "centralizado
