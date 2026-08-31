@@ -10,8 +10,9 @@ no ar sem voltar pra perguntar nada.
 Rodar inteiro antes de dizer "está pronto". Se algum item não passar, dizer **qual**.
 
 ### Originalidade
-- [ ] O teste da frase passou: a descrição estrutural desta página **não** serve para o
-      site anterior (ver [variacoes-estruturais.md](variacoes-estruturais.md))
+- [ ] O sorteio do esqueleto foi feito e seguido, e as 5 escolhas foram escritas no chat
+      (ver [variacoes-estruturais.md](variacoes-estruturais.md) seção 2)
+- [ ] Nenhuma das 5 linhas foi trocada de volta para o padrão de sempre sem motivo real
 - [ ] Nenhum tratamento de bloco se repete em mais de duas seções
 - [ ] Seções vizinhas não usam o mesmo tratamento
 

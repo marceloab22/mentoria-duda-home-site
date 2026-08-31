@@ -182,8 +182,8 @@ Se alguma dessas quebrar, o trabalho está errado mesmo que pareça bonito.
    foto? Moldura vazia com legenda ("foto real da recepção, a confirmar").
 5. **Cor e fonte nunca vêm de outro projeto, e o esqueleto também não.** Identidade visual
    (paleta, tipografia) sai sempre do briefing daquele cliente. E o **esqueleto** da página
-   (ritmo das seções, eixo de leitura, papel da foto, navegação) precisa ser diferente do
-   projeto anterior: trocar só a cor entrega a mesma página duas vezes, e o cliente percebe.
+   (ritmo das seções, eixo de leitura, papel da foto, navegação) sai do sorteio pelo nome do
+   profissional: trocar só a cor entrega a mesma página duas vezes, e o cliente percebe.
    O que se reaproveita entre projetos é só **como o CSS funciona**: trilho único, escala de
    respiro, correções de bug conhecidas, protocolo de teste. Ver
    [variacoes-estruturais.md](references/variacoes-estruturais.md).
@@ -225,21 +225,24 @@ Objetivo: mostrar 3 estilos bem diferentes de **só** cabeçalho + hero + uma ti
 (cerca de 220px) da seção seguinte. **Nunca a página inteira nesta fase.** É rápido de gerar
 e rápido de decidir; a página completa só vem depois da escolha.
 
-**Antes de gerar: escolher o esqueleto.** Cinco decisões (ritmo das seções, eixo de leitura,
-navegação, papel da foto, marcação de seção) que definem como a página **parece**, separadas
-da paleta. Escolher em [variacoes-estruturais.md](references/variacoes-estruturais.md) e
-anotar as 5 escolhas.
+**Antes de gerar: sortear o esqueleto.** Uma skill não tem memória entre conversas, então
+sem regra todo projeto cai no mesmo desenho previsível e dois clientes recebem a mesma
+página com paletas diferentes. E não adianta perguntar ao usuário como ficou o site
+anterior: quem usa a skill pode nunca ter feito nenhum.
 
-Se o usuário já tem outro site feito com esta skill, **peça um print ou o link agora** e
-escolha um esqueleto diferente daquele. É uma pergunta só, e é o que impede o segundo
-cliente de receber a mesma página com outra cor.
+A solução é mecânica e não depende de ninguém lembrar de nada: some a posição de cada letra
+do nome do profissional no alfabeto (A=1 ... Z=26) e use esse número para tirar as 5
+decisões de esqueleto, na tabela de
+[variacoes-estruturais.md](references/variacoes-estruturais.md) seção 2. O mesmo cliente
+sempre dá o mesmo resultado (dá para retomar o projeto depois); clientes diferentes dão
+esqueletos diferentes.
 
-**Teste da frase:** descreva a página em uma frase, só estrutura, sem cor ("hero com foto à
-direita, depois faixas empilhadas com título, texto, lista e botão"). Se essa frase também
-descreve o site anterior, o esqueleto não mudou. Refaça.
+Escreva as 5 escolhas no chat antes de gerar, e siga elas. Só troque uma linha se ela brigar
+com o material real do cliente (sorteou "poucas fotos" e ele mandou seis), dizendo por quê.
 
-As 3 versões precisam divergir de verdade nestes 5 eixos (travar isso no prompt de cada
-uma, ou nos 3 agentes do Workflow):
+Os três heros também saem por sorteio, na mesma referência. Além disso, as 3 versões
+precisam divergir nestes 5 eixos (travar isso no prompt de cada uma, ou nos 3 agentes do
+Workflow):
 
 1. **Composição do hero**: foto em tela cheia / foto dividida ao meio / foto pequena
    emoldurada.

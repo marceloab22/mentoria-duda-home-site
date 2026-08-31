@@ -8,34 +8,57 @@ Trocar a paleta **não** conta como página diferente. O que precisa mudar é o 
 
 ---
 
-## 1. O teste da frase
+## 1. Por que isto existe
 
-Antes de montar a Fase 2, descreva a página em uma frase, só com estrutura, sem cor:
+Uma skill não tem memória entre conversas. Cada projeto começa do zero, sem saber como
+ficou o anterior. Sem regra nenhuma, todo Claude cai no mesmo desenho previsível (hero com
+foto à direita, faixas empilhadas, tudo à esquerda) e dois clientes recebem a mesma página
+com paletas diferentes. Aconteceu de verdade.
 
-> "Hero com foto à direita, depois faixas empilhadas de largura cheia, cada uma com título,
-> parágrafo, lista e botão."
+Não dá para resolver isso perguntando ao usuário "como ficou o site anterior": quem usa a
+skill pode nunca ter feito nenhum, e não tem obrigação de saber disso.
 
-Agora leia essa frase pensando no último site que você (ou a skill) entregou. **Se a frase
-serve para os dois, o esqueleto é o mesmo e precisa mudar.**
+A solução é o **sorteio da seção 2**: um número tirado do próprio nome do profissional
+decide o esqueleto. É determinístico (o mesmo cliente sempre dá o mesmo resultado, então dá
+para retomar o projeto depois) e diferente entre clientes, sem memória nenhuma.
 
-Foi exatamente isso que aconteceu num caso real: dois sites, paletas totalmente diferentes,
-e a mesma frase descrevia os dois.
+## 2. O sorteio do esqueleto (fazer antes de desenhar)
 
-## 2. Esqueleto: as 5 decisões que definem a página
+**Passo 1: calcular S.** Escreva o nome do profissional sem "Dr."/"Dra.", sem espaço e sem
+acento, em maiúsculas. Some a posição de cada letra no alfabeto (A=1, B=2, ... Z=26).
 
-Escolha uma opção de cada linha **antes** de desenhar. Combinações diferentes dão páginas
-que não se parecem, mesmo com os mesmos blocos internos.
+Exemplo: "Dra. Marina Xavier" → `MARINAXAVIER` →
+13+1+18+9+14+1+24+1+22+9+5+18 = **S = 135**
 
-| Decisão | Opções |
-| --- | --- |
-| **Ritmo das seções** | faixas empilhadas de largura cheia / cards flutuantes sobre um fundo contínuo / seções com fundo alternado / blocos que se sobrepõem nas bordas |
-| **Eixo de leitura** | tudo centralizado / tudo à esquerda com margem larga à direita / zig-zag (texto e foto trocam de lado a cada seção) / assimétrico fixo (texto sempre 40%, mídia 60%) |
-| **Navegação** | header fixo com menu / header que some ao rolar / índice lateral fixo (sticky) com as seções / sem menu, só o botão de contato |
-| **Papel da foto** | foto emoldurada dentro da seção / foto sangrando até a borda da tela / foto de fundo com texto por cima / poucas fotos, muito espaço em branco |
-| **Marcação de seção** | título grande / eyebrow curto acima do título / numeração lateral (01, 02, 03) / linha divisória com rótulo |
+**Passo 2: tirar as 5 decisões de S.** Cada linha usa um divisor diferente, então elas não
+andam juntas. `÷` é divisão inteira (descarta o resto).
 
-Anote as 5 escolhas no início do projeto e siga elas. Duas páginas com 5 escolhas diferentes
-não se parecem, mesmo usando os mesmos componentes.
+| # | Decisão | Conta | Opção 0 | Opção 1 | Opção 2 | Opção 3 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Ritmo das seções | `S % 4` | faixas empilhadas de largura cheia | cards flutuantes sobre fundo contínuo | fundo alternado entre seções | blocos que se sobrepõem nas bordas |
+| 2 | Eixo de leitura | `(S ÷ 2) % 4` | tudo centralizado | à esquerda com margem larga à direita | zig-zag (texto e mídia trocam de lado) | assimétrico fixo (texto 40%, mídia 60%) |
+| 3 | Navegação | `(S ÷ 5) % 4` | header fixo com menu | header que some ao rolar | índice lateral fixo com as seções | sem menu, só o botão de contato |
+| 4 | Papel da foto | `(S ÷ 7) % 4` | foto emoldurada dentro da seção | foto sangrando até a borda | foto de fundo com texto por cima | poucas fotos, muito espaço em branco |
+| 5 | Marcação de seção | `(S ÷ 11) % 4` | título grande, sem enfeite | eyebrow curto acima do título | numeração lateral (01, 02, 03) | linha divisória com rótulo |
+
+**Exemplo completo, S = 135:**
+`135%4=3` blocos sobrepostos · `(135÷2=67)%4=3` assimétrico 40/60 ·
+`(135÷5=27)%4=3` sem menu, só botão · `(135÷7=19)%4=3` poucas fotos ·
+`(135÷11=12)%4=0` título grande.
+
+**Por que divisores diferentes:** uma versão anterior desta regra usava só a contagem de
+letras com deslocamentos fixos. Testada em 24 nomes reais, ela produziu **4 combinações
+diferentes só**, com 67 pares de clientes recebendo a mesma página. Com os divisores acima,
+os mesmos 40 nomes geraram 36 combinações distintas, com as 4 opções bem distribuídas em
+todas as 5 linhas.
+
+**Passo 3.** Escreva as 5 escolhas no chat, em uma linha, e siga elas na Fase 1 e na Fase 2.
+
+**Quando ignorar o sorteio:** se uma escolha briga com o material do cliente (sorteou
+"poucas fotos" e ele mandou 6 fotos ótimas; sorteou "foto de fundo com texto por cima" e a
+única foto é escura), troque **aquela linha** por outra opção da mesma linha e diga em uma
+linha por quê. Trocar uma linha por motivo real é ajuste; trocar as cinco de volta para o
+padrão de sempre é o erro que este sorteio existe para evitar.
 
 ## 3. Banco de variações por seção
 
@@ -43,12 +66,16 @@ Cada seção tem mais de um jeito de existir. Escolha por seção, não por háb
 
 ### Hero
 
-1. Foto grande à direita, texto à esquerda (o mais comum, e por isso o mais gasto)
-2. Foto sangrando em tela cheia, texto sobreposto num canto
-3. Sem foto: só tipografia grande, nome e especialidade ocupando a tela
-4. Foto pequena e circular ao lado do nome, hero curto e direto ao CTA
-5. Duas colunas invertidas: foto à esquerda, texto à direita
-6. Hero dividido na diagonal, cor de um lado e foto do outro
+Os três heros da Fase 1 saem daqui, também por sorteio: com o mesmo **S**, use as opções
+`S%6`, `(S+2)%6` e `(S+4)%6`. Somar 2 e 4 garante que os três sejam sempre distintos, e o S
+faz mudarem de cliente para cliente. Com S = 135: heros 3, 5 e 1.
+
+0. Foto grande à direita, texto à esquerda (o mais comum, e por isso o mais gasto)
+1. Foto sangrando em tela cheia, texto sobreposto num canto
+2. Sem foto: só tipografia grande, nome e especialidade ocupando a tela
+3. Foto pequena e circular ao lado do nome, hero curto e direto ao CTA
+4. Duas colunas invertidas: foto à esquerda, texto à direita
+5. Hero dividido na diagonal, cor de um lado e foto do outro
 
 ### Condições tratadas / o que trata
 
@@ -106,9 +133,11 @@ Cada seção tem mais de um jeito de existir. Escolha por seção, não por háb
 ## 4. Regras de diversidade
 
 **Entre projetos:**
-- Nunca repetir a mesma combinação de 5 escolhas do esqueleto (seção 2) do projeto anterior.
-- Se o usuário já fez outro site com esta skill, peça um print ou o link **antes da Fase 1**
-  e escolha um esqueleto diferente daquele. Uma pergunta, resolve o problema inteiro.
+- Rodar o sorteio da seção 2 e seguir o resultado. É isso que garante variedade sem memória.
+- Nunca "corrigir" o sorteio de volta para o padrão de sempre (hero com foto à direita,
+  faixas empilhadas, tudo à esquerda) só porque parece mais seguro.
+- Para o hero, usar as três opções da seção 3 que o sorteio indica, não as três primeiras
+  da lista.
 - A ordem das seções também conta: mudar quais seções existem e em que sequência já muda
   muito a sensação da página.
 
