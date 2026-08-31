@@ -1,6 +1,6 @@
 ---
 name: mentoria-duda-home-site
-description: Use quando o usuário pedir para criar ou revisar a home (página única) de um site de profissional de saúde (médico, dentista, psicólogo, fisioterapeuta, clínica), em duas fases. Fase 1 gera 3 direções visuais diferentes (cabeçalho + hero + amostra da seção seguinte) para o usuário escolher o estilo; Fase 2 monta a página completa no estilo escolhido, testada e pronta para ir pro site. Não usa nenhuma base de dados interna: trabalha só com o que o usuário fornecer no chat. Começa sempre pedindo, uma coisa de cada vez e nesta ordem, antes de desenhar qualquer pixel: primeiro a copy da página, depois a identidade visual (cores e fontes), depois cada foto necessária individualmente.
+description: "Use quando o usuário pedir para criar ou revisar a home (página única) de um site de profissional de saúde (médico, dentista, psicólogo, fisioterapeuta, clínica), em duas fases. Fase 1 gera 3 direções visuais diferentes (cabeçalho + hero + amostra da seção seguinte) para o usuário escolher o estilo; Fase 2 monta a página completa no estilo escolhido, testada e pronta para ir pro site. Não usa nenhuma base de dados interna: trabalha só com o que o usuário fornecer no chat. Começa sempre pedindo, uma coisa de cada vez e nesta ordem, antes de desenhar qualquer pixel: primeiro a copy da página, depois a identidade visual (cores e fontes), depois cada foto necessária individualmente."
 ---
 
 # Home de site de profissional de saúde: visual em 2 fases
