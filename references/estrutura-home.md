@@ -75,7 +75,7 @@ bater exatamente com o Google Business Profile.
 **12. CTA final.** Uma frase e um botão. Sem formulário, sem novidade nesse ponto.
 
 **13. Rodapé.** Nome, CRM + UF, RQE, CNPJ, endereço, telefone, WhatsApp, Instagram, horário,
-diretor técnico (quando clínica), link da política de privacidade, ano.
+diretor técnico (quando clínica), ano.
 
 ---
 

@@ -59,8 +59,8 @@ Fazer no WordPress:
 - favicon
 ```
 
-**4. O que precisa de decisão do cliente**: política de privacidade, banner de cookies (se
-houver rastreamento), confirmação da lista de convênios.
+**4. O que precisa de decisão do cliente**: banner de cookies (se houver rastreamento),
+confirmação da lista de convênios.
 
 ---
 

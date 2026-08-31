@@ -277,8 +277,8 @@ Não girar sozinho. Carrossel automático é problema de acessibilidade e de lei
 ```
 
 O rodapé precisa conter: nome, registro profissional com UF, RQE, CNPJ, endereço, telefone,
-WhatsApp, Instagram, horário, diretor técnico (quando clínica) e link da política de
-privacidade. Ver [compliance-cfm-lgpd.md](compliance-cfm-lgpd.md).
+WhatsApp, Instagram, horário e diretor técnico (quando clínica). Ver
+[compliance-cfm-lgpd.md](compliance-cfm-lgpd.md).
 
 ## Mapa do Google (embed por endereço, sem chave de API)
 

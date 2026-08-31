@@ -87,8 +87,6 @@ O que a home costuma tocar:
 - **Formulário de contato**: se existir, precisa de finalidade declarada, base legal, e
   destino do dado definido. **Nunca perguntar sintoma, diagnóstico ou histórico clínico em
   formulário de site.** Nome, telefone e "assunto" bastam.
-- **Política de privacidade**: link no rodapé. Se não existir ainda, marcar como pendência
-  de entrega, não inventar o texto da política.
 - **Cookies e rastreamento**: se a página tiver Google Analytics, Meta Pixel, Google Ads ou
   qualquer tag de remarketing, precisa de aviso de cookies com opção de recusar os não
   essenciais. Sem tag nenhuma, banner de cookie é ruído desnecessário.
@@ -107,7 +105,6 @@ O que a home costuma tocar:
 - [ ] Lista de convênios confirmada pelo cliente (ou seção removida)
 - [ ] Seção de sintomas em tom informativo, não alarmista
 - [ ] Nenhum formulário pedindo dado clínico
-- [ ] Link de política de privacidade no rodapé (ou pendência listada)
 - [ ] Aviso de cookies, se houver tag de rastreamento
 - [ ] Nenhuma foto de paciente identificável
 
