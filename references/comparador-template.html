@@ -1,0 +1,147 @@
+<!--
+Template da prévia comparativa. Serve para 3 versões (Fase 1) e para 6 versões (regra do
+"não gostei"). As abas são geradas por JS a partir dos <iframe> presentes, então basta
+inserir quantos iframes quiser.
+
+NÃO edite este arquivo à mão para montar um comparador: use comparador.py, que faz o
+escape de HTML e a injeção dos iframes.
+
+Placeholders que o script troca:
+  {{TITULO}}        nome do profissional/clínica
+  {{SUBTITULO}}     o que está sendo comparado
+  {{NOTA}}          uma linha descrevendo a diferença entre as versões
+  {{IFRAMES}}       os <iframe> montados
+-->
+<title>{{TITULO}}</title>
+<style>
+  /* @import tem que ser a PRIMEIRA regra do bloco, senão o navegador ignora e a fonte cai
+     no fallback em silêncio. Conferir com: grep -c "fonts.googleapis" arquivo.html */
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap');
+  :root {
+    --bg: #F7F5F2;
+    --surface: #FFFFFF;
+    --border: #E4DFD8;
+    --text: #2A2F3A;
+    --text-muted: #6B7280;
+    --accent: #9B4C2D;
+    --tab-inactive-bg: #EFEBE5;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1A1B1E; --surface: #232427; --border: #35363A;
+      --text: #EDECEA; --text-muted: #9A9A9E; --accent: #D08A63;
+      --tab-inactive-bg: #2C2D30;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1A1B1E; --surface: #232427; --border: #35363A;
+    --text: #EDECEA; --text-muted: #9A9A9E; --accent: #D08A63;
+    --tab-inactive-bg: #2C2D30;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: var(--font-body); min-height: 100vh;
+    display: flex; flex-direction: column;
+  }
+  .cmp-topbar {
+    padding: 18px clamp(16px, 3vw, 32px) 14px;
+    border-bottom: 1px solid var(--border);
+    display: flex; flex-wrap: wrap; align-items: center;
+    justify-content: space-between; gap: 12px;
+  }
+  .cmp-title { font-family: var(--font-display); font-size: 19px; font-weight: 600; }
+  .cmp-title span {
+    display: block; font-family: var(--font-body); font-size: 12px; font-weight: 400;
+    color: var(--text-muted); margin-top: 2px;
+  }
+  .cmp-controls { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .cmp-tabs, .cmp-device {
+    display: inline-flex; background: var(--tab-inactive-bg);
+    border-radius: 10px; padding: 3px; gap: 2px; flex-wrap: wrap;
+  }
+  .cmp-tabs button, .cmp-device button {
+    border: none; background: transparent; color: var(--text-muted);
+    font-family: var(--font-body); font-size: 13px; font-weight: 600;
+    padding: 8px 16px; border-radius: 8px; cursor: pointer;
+    transition: background .18s ease, color .18s ease; white-space: nowrap;
+  }
+  .cmp-tabs button.is-active, .cmp-device button.is-active {
+    background: var(--surface); color: var(--accent);
+    box-shadow: 0 1px 2px rgba(0,0,0,.08);
+  }
+  .cmp-tabs button:focus-visible, .cmp-device button:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px;
+  }
+  .cmp-note { padding: 6px clamp(16px, 3vw, 32px) 0; font-size: 12.5px; color: var(--text-muted); }
+  .cmp-stage {
+    flex: 1; display: flex; align-items: flex-start; justify-content: center;
+    padding: 24px clamp(8px, 3vw, 32px) 40px; overflow: auto;
+  }
+  .cmp-frame-wrap {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,.10);
+    width: 100%; max-width: 1440px; transition: max-width .25s ease;
+  }
+  .cmp-frame-wrap[data-device="mobile"] { max-width: 390px; }
+  .cmp-frame-wrap iframe {
+    display: none; width: 100%; height: 760px; border: none; background: #fff;
+  }
+  .cmp-frame-wrap iframe.is-active { display: block; }
+  @media (max-width: 640px) { .cmp-topbar { flex-direction: column; align-items: flex-start; } }
+  @media (prefers-reduced-motion: reduce) {
+    .cmp-tabs button, .cmp-device button, .cmp-frame-wrap { transition: none; }
+  }
+</style>
+
+<div class="cmp-topbar">
+  <div class="cmp-title">{{TITULO}}
+    <span>{{SUBTITULO}}</span>
+  </div>
+  <div class="cmp-controls">
+    <div class="cmp-tabs" role="tablist" aria-label="Versão"></div>
+    <div class="cmp-device" role="group" aria-label="Dispositivo">
+      <button type="button" data-device="desktop" class="is-active">Computador</button>
+      <button type="button" data-device="mobile">Celular</button>
+    </div>
+  </div>
+</div>
+<div class="cmp-note">{{NOTA}}</div>
+
+<div class="cmp-stage">
+  <div class="cmp-frame-wrap" data-device="desktop">
+{{IFRAMES}}
+  </div>
+</div>
+
+<script>
+(function () {
+  var frames = [].slice.call(document.querySelectorAll('.cmp-frame-wrap iframe'));
+  var tabsBox = document.querySelector('.cmp-tabs');
+  var frameWrap = document.querySelector('.cmp-frame-wrap');
+
+  frames.forEach(function (f, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = f.getAttribute('data-label') || ('Versão ' + (i + 1));
+    if (i === 0) { b.className = 'is-active'; f.classList.add('is-active'); }
+    b.addEventListener('click', function () {
+      [].forEach.call(tabsBox.children, function (x) { x.classList.remove('is-active'); });
+      b.classList.add('is-active');
+      frames.forEach(function (x, j) { x.classList.toggle('is-active', j === i); });
+    });
+    tabsBox.appendChild(b);
+  });
+
+  document.querySelectorAll('.cmp-device button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.cmp-device button').forEach(function (b) { b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      frameWrap.setAttribute('data-device', btn.getAttribute('data-device'));
+    });
+  });
+})();
+</script>
