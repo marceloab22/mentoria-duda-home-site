@@ -213,6 +213,16 @@ Sete passos. Não pular, não inverter. Marcar cada um como concluído antes do 
 | 6 | Refino | Rodadas de ajuste, regra das 6 versões | Seção 6 |
 | 7 | Handoff | Arquivo final + lista de pendências + instruções | [entrega-handoff.md](references/entrega-handoff.md) |
 
+**Site novo em WordPress: SEMPRE montar/publicar pelo Novamira** (regra fixa do Marcelo,
+01/09/2026), e instalar o Novamira ANTES de publicar a home, não depois. Ele dá acesso
+PHP/arquivo direto: sobe HTML grande sem esbarrar em firewall, não depende de o Marcelo colar
+nada, e deixa o site editável por mim depois. Ordem certa: domínio + hospedagem + WordPress >
+Novamira (skill `instalar-novamira-wordpress`) > publicar a home **pelo Novamira** (Opção A da
+seção 3 do [entrega-handoff.md](references/entrega-handoff.md)) > fechar o SEO (seção 3.1).
+Colar HTML no wp-admin na mão é plano B, só se o Novamira não funcionar naquele host, e dizendo
+por quê. Fazer ao contrário significa resolver o mesmo problema duas vezes (aconteceu em
+01/09/2026).
+
 **Passo 2 é o mais pulado e o que mais custa caro.** Antes de desenhar qualquer pixel,
 mostre ao usuário a lista de seções na ordem e peça o "ok". Descobrir na Fase 2 que faltava
 uma seção inteira significa refazer respiro e navegação.

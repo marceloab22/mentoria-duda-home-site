@@ -31,6 +31,9 @@ não são feitos aqui, eles viram lista de tarefas na entrega.
 
 ### Vira tarefa de handoff (fazer no WordPress/CMS)
 
+Não é "lista pro cliente fazer": é lista pra **eu** fazer no wp-admin logo depois de publicar,
+na mesma sessão. Ver o passo a passo em [entrega-handoff.md](entrega-handoff.md) seção 3.1.
+
 - `<title>`: 50 a 60 caracteres. Padrão que funciona:
   `Nome, especialidade em Cidade | Clínica`
 - `meta description`: 140 a 155 caracteres, com o que o profissional faz e onde.
@@ -40,6 +43,20 @@ não são feitos aqui, eles viram lista de tarefas na entrega.
 - Favicon.
 - Sitemap e robots.txt.
 - Google Search Console e Google Analytics.
+
+### Armadilha: o `<h1>` fantasma do título do post
+
+Descoberto em 01/09/2026 (site da Dra. Tatiana Lebrão Machado). Muitos temas imprimem o
+**título do post do WordPress** como `<h1 class="entry-title">` na página, mesmo quando o
+CSS do projeto esconde esse elemento. Resultado: a página tem **dois** `<h1>`, o de verdade
+(no hero) e um invisível escrito só "Home". O Google lê os dois e o invisível não diz nada.
+
+- Conferir sempre no site publicado (não na prévia), com
+  `document.querySelectorAll('h1')` no console: se voltar mais de um, é esse.
+- Correção: renomear o **título do post** (não o conteúdo) pra um texto com palavra-chave,
+  ex: `Atendimento em Endocrinologia em São Paulo | Dra. Tatiana Lebrão Machado`. Zero
+  impacto visual, porque continua escondido por CSS.
+- Só apagar o elemento se o tema deixar; renomear é mais seguro e resolve igual.
 
 ### Schema.org: modelo para profissional de saúde
 
@@ -180,6 +197,8 @@ arquivos passar de 2 MB, tem foto grande demais.
 
 **SEO**
 - [ ] Um único `<h1>`, com especialidade e cidade
+- [ ] Depois de publicar: `document.querySelectorAll('h1').length` igual a 1 **no site no ar**
+      (o título do post costuma criar um segundo `h1` invisível, ver seção 1)
 - [ ] Hierarquia de heading sem pular nível
 - [ ] `alt` descritivo em toda imagem
 - [ ] Endereço e telefone em texto, batendo com o Google Business Profile
