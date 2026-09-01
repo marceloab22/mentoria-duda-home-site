@@ -53,22 +53,29 @@ usuário pedir 6 opções de respiro.
 ## 2b. Formatação padrão de seção de texto (esta parte SE copia entre projetos)
 
 Cuidado para não confundir com a regra de esqueleto: **o esqueleto muda entre clientes, a
-formatação de uma seção de texto não.** Toda seção do tipo "título, subtítulo, parágrafos,
-lista, botão", **sem foto ou mapa ao lado**, usa o mesmo tratamento:
+formatação de uma seção de texto não.**
 
-- Cabeçalho **centralizado** (`.section-head-center`)
-- Corpo **centralizado**, ocupando o trilho (não deixar o texto colado à esquerda com a
-  metade direita vazia)
-- Lista ou chips centralizados
-- Botão centralizado (`.btn-wrap-center`)
-- Escala arejada da seção 2 (32 / 24 / 20 / 36 / 36)
+**A regra, em uma frase:** numa seção de texto puro (título, subtítulo, parágrafos, lista,
+botão, **sem** foto, mapa ou carrossel ao lado), o bloco ocupa a **largura do trilho**.
+Nunca um `max-width` de meia largura com a outra metade vazia.
+
+Mais a escala arejada da seção 2 (32 / 24 / 20 / 36 / 36), sempre.
+
+**Isto não briga com o sorteio do esqueleto.** O sorteio decide o *eixo* (centralizado ou à
+esquerda) e vale: uma página de eixo à esquerda mantém título e texto à esquerda. O que a
+regra proíbe é outra coisa, o **bloco estreito com vazio ao lado**:
+
+| Eixo sorteado | Certo | Errado |
+| --- | --- | --- |
+| Centralizado | tudo centralizado, ocupando o trilho | texto centralizado num tubo de 500px |
+| À esquerda | tudo à esquerda, ocupando o trilho | `max-width: 640px` com metade da tela vazia |
 
 **Sintoma de que a regra não foi aplicada:** o usuário diz "ficou muito para o lado". É o
-cabeçalho com `max-width` fixo alinhado à esquerda, num bloco que não tem nada na coluna da
-direita. O texto fica com linha longa demais **e** com um vazio enorme ao lado.
+cabeçalho com `max-width` fixo num bloco que não tem nada na coluna da direita: linha longa
+demais **e** um vazio enorme ao lado.
 
-Seção que **tem** foto, mapa ou carrossel ao lado continua alinhada à esquerda, em duas
-colunas. A regra vale só para bloco de texto puro.
+Seção que **tem** foto, mapa ou carrossel ao lado continua em duas colunas, e aí o
+`max-width` do cabeçalho é obrigatório (ver seção 4.1). A regra vale só para texto puro.
 
 Bug real: um projeto reaproveitou o esqueleto de outro (errado) mas **não** reaproveitou
 essa formatação (também errado). Saiu com 5 seções de texto alinhadas à esquerda, linha de

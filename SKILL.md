@@ -240,16 +240,17 @@ esqueletos diferentes.
 Escreva as 5 escolhas no chat antes de gerar, e siga elas. Só troque uma linha se ela brigar
 com o material real do cliente (sorteou "poucas fotos" e ele mandou seis), dizendo por quê.
 
-Os três heros também saem por sorteio, na mesma referência. Além disso, as 3 versões
-precisam divergir nestes 5 eixos (travar isso no prompt de cada uma, ou nos 3 agentes do
-Workflow):
+**O que o sorteio já resolve, não escolha de novo:** a composição do hero (os três heros
+saem sorteados na mesma referência) e o alinhamento geral (o eixo de leitura é a decisão 2).
 
-1. **Composição do hero**: foto em tela cheia / foto dividida ao meio / foto pequena
-   emoldurada.
-2. **Luminosidade**: fundo escuro / claro / bloco de cor da marca.
-3. **Tipografia**: peso e estilo do título (serifada elegante / sem serifa firme / mista).
-4. **Respiro**: mais espaçado vs. mais compacto.
-5. **Alinhamento**: centralizado / à esquerda / assimétrico.
+**O que ainda é escolha sua**, e precisa divergir de verdade entre as 3 versões (travar isso
+no prompt de cada uma, ou nos 3 agentes do Workflow):
+
+1. **Luminosidade**: fundo escuro / claro / bloco de cor da marca.
+2. **Tipografia**: peso e estilo do título (serifada elegante / sem serifa firme / mista).
+3. **Densidade**: mais espaçado vs. mais compacto. Vale só como sensação da Fase 1; na
+   Fase 2 o respiro segue a escala arejada padrão.
+4. **Tratamento da tira de amostra**: como a seção seguinte aparece (chips, cards, lista).
 
 Se duas versões pudessem ser confundidas numa olhada rápida, elas não divergiram o
 suficiente. Refaça. O mesmo vale se as três forem "hero com foto à direita" pintado de três
@@ -317,8 +318,10 @@ conversa e deixa cada iteração lenta.
   no header, no hero e em todas as seções. Ver
   [hero-armadilhas.md](references/hero-armadilhas.md) seções 1 e 2.
 - **Sem** `<!DOCTYPE>`, `<html>`, `<head>`, `<body>`: quem exibe já cuida disso. Consequência
-  importante: `<title>`, `meta description` e schema.org **não** entram no HTML gerado, viram
-  tarefa de handoff (ver [seo-acessibilidade.md](references/seo-acessibilidade.md)).
+  importante: `<title>`, `meta description`, canonical, Open Graph e favicon **não** entram
+  no HTML gerado, viram tarefa de handoff. O JSON-LD do schema.org **entra sim**: ele
+  funciona no corpo da página, não precisa de `<head>`. Ver
+  [seo-acessibilidade.md](references/seo-acessibilidade.md).
 - JavaScript sempre dentro de uma IIFE: `(function(){ ... })();`. Nunca variável global.
 - Nenhum recurso externo além de: Google Fonts, links `wa.me`, embed do Google Maps, embed
   do Instagram.
@@ -357,14 +360,11 @@ texto, senão ninguém sabe pra onde o botão vai. Resumindo:
 | Flutuante (canto da tela) | verde do WhatsApp | sim | não |
 | De seção / header | cor da marca | sim | sim |
 
-Erro real: uma sessão entregou o flutuante marrom (devia ser verde) e os botões de texto
-sem ícone nenhum (devia ter). Os dois casos passam despercebidos porque a página fica
-bonita mesmo assim.
-
-Erro real, aconteceu com esta skill: uma sessão entregou o botão pintado de marrom (a cor
-da marca) numa versão e, na outra, uma pílula verde com a frase "Informações e agendamento"
-dentro. As duas quebram as regras 1 e 2. Antes de publicar, olhe o botão e confirme: é um
-círculo verde com o ícone e nada mais?
+Erro real, aconteceu com esta skill: uma sessão entregou o flutuante pintado de marrom (a
+cor da marca) numa versão e, na outra, uma pílula verde com a frase "Informações e
+agendamento" dentro; os CTAs de texto saíram sem ícone nenhum. Tudo isso passa despercebido
+porque a página fica bonita assim mesmo. Antes de publicar, olhe o botão e confirme: é um
+círculo verde com o ícone e nada mais? Os CTAs de texto têm o ícone?
 
 ---
 
@@ -413,9 +413,13 @@ Protocolo mínimo antes de qualquer publicação:
 4. **Mobile em 375px**: obrigatório em toda correção de posição de foto/mapa. Margem
    negativa que funciona em duas colunas vira sobreposição quando o grid empilha.
 5. **Visual de cada seção**: teste isolado, não rolando a página inteira (ver abaixo).
-6. **Fonte carregando**: `grep -c "fonts.googleapis" arquivo.html` maior que 0 se o CSS
+6. **Botão de WhatsApp**: flutuante verde, círculo, sem texto; CTAs de texto com o ícone.
+   Snippet 12 de [testes-medicao.md](references/testes-medicao.md).
+7. **Seção de texto puro**: o bloco ocupa a largura do trilho, sem `max-width` de meia
+   largura deixando a outra metade vazia.
+8. **Fonte carregando**: `grep -c "fonts.googleapis" arquivo.html` maior que 0 se o CSS
    pedir fonte do Google.
-7. **Zero travessão**: `grep -c "—" arquivo.html` igual a 0.
+9. **Zero travessão**: `grep -c "—" arquivo.html` igual a 0.
 
 **Página pesada trava o preview ao rolar.** Com várias fotos em base64 e 10+ seções, alguns
 ambientes travam ou tiram screenshot preto ao rolar (a ferramenta de scroll, `scroll_to` e
