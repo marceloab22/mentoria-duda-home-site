@@ -28,7 +28,7 @@ compliance e a lista de seções. Ver SKILL.md seção 11.
 Clonar direto no diretório de skills do seu Claude Code:
 
 ```bash
-git clone https://github.com/SEU-USUARIO/mentoria-duda-home-site.git ~/.claude/skills/mentoria-duda-home-site
+git clone https://github.com/marceloab22/mentoria-duda-home-site.git ~/.claude/skills/mentoria-duda-home-site
 ```
 
 Ou, se você recebeu a pasta em vez do link:
